@@ -1,0 +1,152 @@
+[
+  {
+    "id": "return-of-capital",
+    "name": "Return of Capital",
+    "description": "Dividends, buybacks, and other cash returns to shareholders",
+    "winRate": 72,
+    "avgReturn1d": 3.2,
+    "avgReturn1w": 5.8,
+    "avgReturn1m": 12.4,
+    "sp500Comparison": 2.1
+  },
+  {
+    "id": "government-actions",
+    "name": "Government Actions",
+    "description": "FDA approvals, regulatory decisions, government contracts",
+    "winRate": 68,
+    "avgReturn1d": 4.5,
+    "avgReturn1w": 8.2,
+    "avgReturn1m": 15.3,
+    "sp500Comparison": 3.2
+  },
+  {
+    "id": "restructuring",
+    "name": "Restructuring",
+    "description": "Layoffs, cost cuts, operational changes",
+    "winRate": 61,
+    "avgReturn1d": 2.8,
+    "avgReturn1w": 4.5,
+    "avgReturn1m": 9.2,
+    "sp500Comparison": 1.8
+  },
+  {
+    "id": "activist-investors",
+    "name": "Activist Investors",
+    "description": "Activist stake building and demands for change",
+    "winRate": 75,
+    "avgReturn1d": 5.2,
+    "avgReturn1w": 12.4,
+    "avgReturn1m": 28.6,
+    "sp500Comparison": 4.5
+  },
+  {
+    "id": "ceo-leadership-changes",
+    "name": "CEO/Leadership Changes",
+    "description": "New CEO appointments, executive departures",
+    "winRate": 58,
+    "avgReturn1d": 1.9,
+    "avgReturn1w": 3.2,
+    "avgReturn1m": 6.8,
+    "sp500Comparison": 1.2
+  },
+  {
+    "id": "dividend-increases",
+    "name": "Dividend Increases",
+    "description": "Companies raising dividend payments",
+    "winRate": 78,
+    "avgReturn1d": 2.1,
+    "avgReturn1w": 4.2,
+    "avgReturn1m": 8.5,
+    "sp500Comparison": 2.5
+  },
+  {
+    "id": "contract-awards",
+    "name": "Contract Awards",
+    "description": "Major contract wins and procurement awards",
+    "winRate": 70,
+    "avgReturn1d": 3.8,
+    "avgReturn1w": 6.5,
+    "avgReturn1m": 14.2,
+    "sp500Comparison": 2.8
+  },
+  {
+    "id": "short-seller-reports",
+    "name": "Short Seller Reports",
+    "description": "Short seller attacks and critical reports",
+    "winRate": 82,
+    "avgReturn1d": -8.2,
+    "avgReturn1w": -12.4,
+    "avgReturn1m": -18.5,
+    "sp500Comparison": -4.2
+  },
+  {
+    "id": "index-inclusion",
+    "name": "Index Inclusion/Exclusion",
+    "description": "S&P 500, Russell additions and removals",
+    "winRate": 88,
+    "avgReturn1d": 4.2,
+    "avgReturn1w": 6.8,
+    "avgReturn1m": 11.2,
+    "sp500Comparison": 3.5
+  },
+  {
+    "id": "fda-breakthrough",
+    "name": "FDA Breakthrough/Approval",
+    "description": "FDA breakthrough designation or drug approval",
+    "winRate": 85,
+    "avgReturn1d": 12.5,
+    "avgReturn1w": 18.2,
+    "avgReturn1m": 35.4,
+    "sp500Comparison": 8.2
+  },
+  {
+    "id": "earnings-turnaround",
+    "name": "Earnings Turnaround",
+    "description": "Companies reporting positive earnings after losses",
+    "winRate": 72,
+    "avgReturn1d": 6.2,
+    "avgReturn1w": 10.5,
+    "avgReturn1m": 22.8,
+    "sp500Comparison": 4.2
+  },
+  {
+    "id": "ma-deals",
+    "name": "M&A / Deals",
+    "description": "Mergers, acquisitions, take-private offers",
+    "winRate": 65,
+    "avgReturn1d": 8.5,
+    "avgReturn1w": 15.2,
+    "avgReturn1m": 28.4,
+    "sp500Comparison": 5.2
+  },
+  {
+    "id": "product-leadership",
+    "name": "Product/Leadership Changes",
+    "description": "Major product launches, leadership restructuring",
+    "winRate": 55,
+    "avgReturn1d": 2.2,
+    "avgReturn1w": 3.8,
+    "avgReturn1m": 7.2,
+    "sp500Comparison": 1.5
+  },
+  {
+    "id": "lawsuits",
+    "name": "Lawsuits",
+    "description": "Major litigation, settlements, class actions",
+    "winRate": 62,
+    "avgReturn1d": -3.2,
+    "avgReturn1w": -5.8,
+    "avgReturn1m": -9.4,
+    "sp500Comparison": -2.2
+  },
+  {
+    "id": "supply-chain-weather",
+    "name": "Supply Chain / Weather Events",
+    "description": "Supply chain disruptions, weather impacts",
+    "winRate": 68,
+    "avgReturn1d": 3.5,
+    "avgReturn1w": 6.2,
+    "avgReturn1m": 12.8,
+    "sp500Comparison": 2.5
+  }
+]
