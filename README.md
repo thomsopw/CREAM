@@ -75,9 +75,13 @@ cream/
 
 ## Deploy to Netlify
 
-1. Push to GitHub and connect the repo in Netlify.
-2. Set environment variables: `DATABASE_URL`, `DIRECT_URL`, `NEXTAUTH_SECRET`, `NEXTAUTH_URL` (your Netlify URL).
-3. Build command: `npm run build`. Netlify auto-detects Next.js.
+1. Connect [CREAM](https://github.com/thomsopw/CREAM) to Netlify (Site settings → Build & deploy → Connect repository).
+2. Set environment variables in Netlify (Site settings → Environment variables):
+   - `DATABASE_URL` — Neon pooled connection string (from [Neon console](https://console.neon.tech))
+   - `DIRECT_URL` — Neon direct connection string
+   - `NEXTAUTH_SECRET` — Generate with `openssl rand -base64 32`
+   - `NEXTAUTH_URL` — Your Netlify site URL (e.g. `https://your-site.netlify.app`)
+3. Deploy. The `netlify.toml` and `@netlify/plugin-nextjs` handle the build.
 
 ## Disclaimer
 
