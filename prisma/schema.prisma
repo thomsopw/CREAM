@@ -3,6 +3,8 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// Run with: npx prisma db seed (or npm run db:seed)
+
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
@@ -10,17 +12,31 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
+  id            String      @id @default(cuid())
+  email         String      @unique
   name          String?
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   accounts      Account[]
   sessions      Session[]
   alerts        Alert[]
   watchlists    Watchlist[]
+  algorithms    Algorithm[]
+}
+
+model Algorithm {
+  id          String   @id @default(cuid())
+  userId      String?
+  name        String
+  description String?
+  definition  String   // JSON: nodes, edges, outputNodeId
+  isPreset    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  @@index([userId, isPreset])
 }
 
 model Account {

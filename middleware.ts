@@ -14,5 +14,6 @@ export const config = {
     "/alerts/:path*",
     "/watchlist/:path*",
     "/companies/:path*",
+    "/algorithms/:path*",
   ],
 };

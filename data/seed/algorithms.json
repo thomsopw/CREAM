@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Return of Capital Only",
+    "description": "Single scenario: events matching Return of Capital (dividends, buybacks)",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "return-of-capital" }
+      ],
+      "edges": [],
+      "outputNodeId": "scenario-1"
+    }
+  },
+  {
+    "name": "Activist + Min Return",
+    "description": "Activist investor events with minimum 15% expected 1-month return",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "activist-investors" },
+        { "id": "filter-1", "type": "filter", "filterType": "minReturn", "value": 15 },
+        { "id": "op-1", "type": "operator", "op": "AND" }
+      ],
+      "edges": [
+        { "from": "scenario-1", "to": "op-1" },
+        { "from": "filter-1", "to": "op-1" }
+      ],
+      "outputNodeId": "op-1"
+    }
+  },
+  {
+    "name": "FDA Approval or Government Action",
+    "description": "FDA breakthrough/approval OR government actions (regulatory, contracts)",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "fda-breakthrough" },
+        { "id": "scenario-2", "type": "scenario", "scenarioId": "government-actions" },
+        { "id": "op-1", "type": "operator", "op": "OR" }
+      ],
+      "edges": [
+        { "from": "scenario-1", "to": "op-1" },
+        { "from": "scenario-2", "to": "op-1" }
+      ],
+      "outputNodeId": "op-1"
+    }
+  },
+  {
+    "name": "Bearish: Short Seller Reports",
+    "description": "Short seller attacks - bearish plays",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "short-seller-reports" }
+      ],
+      "edges": [],
+      "outputNodeId": "scenario-1"
+    }
+  },
+  {
+    "name": "Bullish Combo",
+    "description": "Return of capital OR dividend increases, limited to Healthcare and Technology sectors",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "return-of-capital" },
+        { "id": "scenario-2", "type": "scenario", "scenarioId": "dividend-increases" },
+        { "id": "op-or", "type": "operator", "op": "OR" },
+        { "id": "filter-1", "type": "filter", "filterType": "sector", "value": ["Healthcare", "Technology"] },
+        { "id": "op-and", "type": "operator", "op": "AND" }
+      ],
+      "edges": [
+        { "from": "scenario-1", "to": "op-or" },
+        { "from": "scenario-2", "to": "op-or" },
+        { "from": "op-or", "to": "op-and" },
+        { "from": "filter-1", "to": "op-and" }
+      ],
+      "outputNodeId": "op-and"
+    }
+  },
+  {
+    "name": "FDA High Conviction",
+    "description": "FDA breakthrough events with minimum 20% expected 1-month return",
+    "definition": {
+      "nodes": [
+        { "id": "scenario-1", "type": "scenario", "scenarioId": "fda-breakthrough" },
+        { "id": "filter-1", "type": "filter", "filterType": "minReturn", "value": 20 },
+        { "id": "op-1", "type": "operator", "op": "AND" }
+      ],
+      "edges": [
+        { "from": "scenario-1", "to": "op-1" },
+        { "from": "filter-1", "to": "op-1" }
+      ],
+      "outputNodeId": "op-1"
+    }
+  }
+]

@@ -1,11 +1,17 @@
 import Link from "next/link";
+import { prisma } from "@/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { scenarios, getEventsWithImpacts } from "@/lib/data";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   const eventsWithImpacts = getEventsWithImpacts();
   const recentEvents = eventsWithImpacts.slice(0, 5);
+  const presetAlgorithms = await prisma.algorithm.findMany({
+    where: { isPreset: true },
+    take: 4,
+    orderBy: { name: "asc" },
+  });
   const topScenarios = scenarios
     .sort((a, b) => (b.winRate ?? 0) - (a.winRate ?? 0))
     .slice(0, 5);
@@ -19,7 +25,7 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Recent Events</CardTitle>
@@ -87,6 +93,36 @@ export default function DashboardPage() {
                       win rate
                     </span>
                   </div>
+                </Link>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>Preset Algorithms</CardTitle>
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/algorithms">View all</Link>
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {presetAlgorithms.map((algo) => (
+                <Link
+                  key={algo.id}
+                  href={`/algorithms/${algo.id}`}
+                  className="flex items-center justify-between rounded-lg border border-border/60 p-4 transition-colors hover:bg-muted/30"
+                >
+                  <div>
+                    <span className="font-medium">{algo.name}</span>
+                    {algo.description && (
+                      <p className="text-sm text-muted-foreground line-clamp-1">
+                        {algo.description}
+                      </p>
+                    )}
+                  </div>
+                  <span className="text-sm text-primary">Run</span>
                 </Link>
               ))}
             </div>
