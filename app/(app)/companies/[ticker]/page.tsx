@@ -1,15 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { EventImpactChart } from "@/components/charts/event-impact-chart";
 import { Badge } from "@/components/ui/badge";
 import { AddToWatchlistButton } from "@/components/watchlist/add-to-watchlist-button";
 import {
@@ -75,27 +67,7 @@ export default async function CompanyProfilePage({
           </CardHeader>
           <CardContent>
             {chartData.length > 0 ? (
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                    <XAxis dataKey="date" className="text-xs" />
-                    <YAxis
-                      className="text-xs"
-                      tickFormatter={(v) => `${v}%`}
-                    />
-                    <Tooltip
-                      formatter={(v: number) => [`${v}%`, "1m Return"]}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="return"
-                      stroke="hsl(var(--color-primary))"
-                      strokeWidth={2}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
+              <EventImpactChart data={chartData} />
             ) : (
               <p className="py-8 text-center text-muted-foreground">
                 No event data available

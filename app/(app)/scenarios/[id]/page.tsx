@@ -1,15 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScenarioReturnsChart } from "@/components/charts/scenario-returns-chart";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -72,22 +64,7 @@ export default async function ScenarioDetailPage({
             </p>
           </CardHeader>
           <CardContent>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="period" className="text-xs" />
-                  <YAxis className="text-xs" tickFormatter={(v) => `${v}%`} />
-                  <Tooltip formatter={(v: number) => [`${v}%`, "Avg Return"]} />
-                  <Line
-                    type="monotone"
-                    dataKey="avg"
-                    stroke="hsl(var(--color-primary))"
-                    strokeWidth={2}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
+            <ScenarioReturnsChart data={chartData} />
             <div className="mt-4 flex gap-6">
               <div>
                 <span className="text-sm text-muted-foreground">1 Day: </span>
